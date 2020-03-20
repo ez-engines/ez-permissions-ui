@@ -8,6 +8,14 @@ module Ez
 
         form
 
+        def groups
+          @groups ||= Ez::Permissions::DSL.resources.group_by(&:group)
+        end
+
+        def group_names
+          @group_names ||= groups.keys.compact.map(&:to_s).sort.map(&:to_sym)
+        end
+
         def actions_names
           @actions_names ||= permissions_actions
                              .map(&:action)

@@ -3,7 +3,7 @@
 module Ez
   module Permissions
     module UI
-      VERSION = '0.4.1'
+      VERSION = '0.4.3'
     end
   end
 end

@@ -24,7 +24,10 @@ RSpec.describe 'Update role permissions' do
       expect(page).to have_content 'Permissions controller before action works fine'
     end
 
-    within('.dummy-table-thead-tr') do
+    expect(page).to have_content 'Accounts'
+    expect(page).to have_content 'Others'
+
+    within first('.dummy-table-thead-tr') do
       expect(page).to have_content('All')
       expect(page).to have_content('Create')
       expect(page).to have_content('Read')
