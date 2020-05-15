@@ -16,18 +16,21 @@
           thead class=(css_for 'table-thead')
             tr class=(css_for 'table-thead-tr')
               th class=(css_for 'table-thead-th') = group.to_s.humanize.presence
-              th class=(css_for 'table-thead-th') = t('permissions.fields.all')
-              - actions_names.each do |action_name|
-                th class=(css_for 'table-thead-th') = action_name.humanize
+              th class=(css_for 'table-thead-th')
+                th class=(css_for 'table-thead-th')
           tbody class=(css_for 'table-tbody')
             - resources_names.select { |r| groups[group].map(&:name).include?(r.to_sym) }.each do |resource_name|
               tr class=(css_for 'table-tbody-tr') id=("resource-#{resource_name}")
-                td class=(css_for 'table-tbody-td-name') style="width: 70%" = resource_name.humanize
-                td class=(css_for 'table-tbody-td-action') id=("permission-#{resource_name}-all")
-                  = check_box_tag "all_permissions[]", "all-permission-#{resource_name}", all_granted?(resource_name), class: 'toggle-all-resource-actions', id: "permission-checkbox-#{resource_name}"
-                - actions_names.each do |action_name|
-                  td class=(css_for 'table-tbody-td-action') id=("permission-#{resource_name}-#{action_name}")
-                    = permission_checkbox(resource_name, action_name)
+                td class=(css_for 'table-tbody-td-name') style="width: 30%" = resource_name.humanize
+                td class=(css_for 'table-tbody-td-action') style="width: 10%" id=("permission-#{resource_name}-all")
+                  = div_for 'table-permission-check'
+                    = check_box_tag "all_permissions[]", "all-permission-#{resource_name}", all_granted?(resource_name), class: 'toggle-all-resource-actions', id: "permission-checkbox-#{resource_name}"
+                    = label_tag "permission-checkbox-#{resource_name}", t('permissions.fields.all')
+                td class=(css_for 'table-tbody-td-action')
+                  - actions_names.sort.each do |action_name|
+                    = div_for 'table-permission-check'
+                      = permission_checkbox(resource_name, action_name)
+                      = permissions_label(resource_name, action_name)
 
 
       = f.submit t('permissions.actions.update'), class: css_for('permissions-submit-button')

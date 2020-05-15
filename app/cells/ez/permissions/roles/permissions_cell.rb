@@ -58,6 +58,14 @@ module Ez
                         id: "permission-checkbox-#{resource_name}-#{action_name}"
         end
 
+        def permissions_label(resource_name, action_name)
+          permission_id = permission_id(resource_name, action_name)
+
+          return unless permission_id
+
+          label_tag "permission-checkbox-#{resource_name}-#{action_name}", action_name.humanize
+        end
+
         def all_granted?(resource_name = nil)
           if resource_name
             role_permissions.select { |p| p.resource == resource_name }.size ==

@@ -27,15 +27,6 @@ RSpec.describe 'Update role permissions' do
     expect(page).to have_content 'Accounts'
     expect(page).to have_content 'Others'
 
-    within first('.dummy-table-thead-tr') do
-      expect(page).to have_content('All')
-      expect(page).to have_content('Create')
-      expect(page).to have_content('Read')
-      expect(page).to have_content('Update')
-      expect(page).to have_content('Delete')
-      expect(page).to have_content('Custom')
-    end
-
     expect(page).to have_checked_field 'permission-grant-all'
 
     within('#resource-projects') do
