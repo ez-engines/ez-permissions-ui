@@ -27,6 +27,10 @@ module Ez
           @resources_names ||= permissions_actions.map(&:resource).uniq.sort
         end
 
+        def resource_by(name)
+          Ez::Permissions::DSL.resources.find { |r| r.name == name.to_sym }
+        end
+
         def permissions_actions
           @permissions_actions ||= Ez::Permissions::Permission.all.to_a
         end

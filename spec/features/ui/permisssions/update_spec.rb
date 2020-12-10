@@ -30,7 +30,7 @@ RSpec.describe 'Update role permissions' do
     expect(page).to have_checked_field 'permission-grant-all'
 
     within('#resource-projects') do
-      expect(page).to have_content 'Projects'
+      expect(page).to have_content 'My projects'
       expect(page).to have_checked_field 'permission-checkbox-projects'
       expect(page).to have_checked_field 'permission-checkbox-projects-create'
       expect(page).to have_checked_field 'permission-checkbox-projects-read'
@@ -97,7 +97,7 @@ RSpec.describe 'Update role permissions' do
     expect(page).to have_unchecked_field 'permission-grant-all'
 
     within('#resource-projects') do
-      expect(page).to have_content 'Projects'
+      expect(page).to have_content 'My projects'
       expect(page).to have_unchecked_field 'permission-checkbox-projects'
       expect(page).to have_unchecked_field 'permission-checkbox-projects-create'
       expect(page).to have_checked_field 'permission-checkbox-projects-read'
@@ -123,7 +123,7 @@ RSpec.describe 'Update role permissions' do
     expect(page).to have_current_path "/permissions/roles/#{manager.id}/permissions"
 
     within('#resource-projects') do
-      expect(page).to have_content 'Projects'
+      expect(page).to have_content 'My projects'
       expect(page).to have_unchecked_field 'permission-checkbox-projects'
       expect(page).to have_unchecked_field 'permission-checkbox-projects-create'
       expect(page).to have_unchecked_field 'permission-checkbox-projects-read'

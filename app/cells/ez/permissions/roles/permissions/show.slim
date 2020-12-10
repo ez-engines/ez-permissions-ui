@@ -4,7 +4,7 @@
     = div_for 'header-container'
       = div_for 'header-inner-container'
         h2 class=(css_for 'header-label') = model.name.humanize
-
+    br
     = div_for 'permissions-grant-all-container'
       = check_box_tag "grant_all", "grant_all", all_granted?, onclick: "checkAll(this)", id: 'permission-grant-all'
       = label_tag "grant_all", t('permissions.actions.grant_all')
@@ -21,7 +21,7 @@
           tbody class=(css_for 'table-tbody')
             - resources_names.select { |r| groups[group].map(&:name).include?(r.to_sym) }.each do |resource_name|
               tr class=(css_for 'table-tbody-tr') id=("resource-#{resource_name}")
-                td class=(css_for 'table-tbody-td-name') style="width: 30%" = resource_name.humanize
+                td class=(css_for 'table-tbody-td-name') style="width: 30%" = resource_by(resource_name).label
                 td class=(css_for 'table-tbody-td-action') style="width: 10%" id=("permission-#{resource_name}-all")
                   = div_for 'table-permission-check'
                     = check_box_tag "all_permissions[]", "all-permission-#{resource_name}", all_granted?(resource_name), class: 'toggle-all-resource-actions', id: "permission-checkbox-#{resource_name}"
@@ -31,7 +31,6 @@
                     = div_for 'table-permission-check'
                       = permission_checkbox(resource_name, action_name)
                       = permissions_label(resource_name, action_name)
-
 
       = f.submit t('permissions.actions.update'), class: css_for('permissions-submit-button')
       = link_to t('permissions.actions.cancel'), path_for, class: css_for('permissions-cancel-link')
@@ -49,9 +48,10 @@ javascript:
 
   // Toggle only row checkboxes
   var checkboxes = document.querySelectorAll('.toggle-all-resource-actions');
+
   [].forEach.call(checkboxes, function(checkbox) {
     checkbox.onchange = function() {
-      var currentRow = this.parentNode.parentNode;
+      var currentRow = this.parentNode.parentNode.parentNode;
       var cbElems = currentRow.querySelectorAll('[type="checkbox"]');
       [].forEach.call(cbElems, function(cb) {
         cb.checked = this.checked;
