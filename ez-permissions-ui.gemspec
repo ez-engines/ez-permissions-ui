@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.summary     = 'UI extension for ez-permissions.'
   s.description = 'UI extension for ez-permissions.'
   s.license     = 'MIT'
-  s.required_ruby_version = '2.5.0'
+  s.required_ruby_version = '>= 2.5.0'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.

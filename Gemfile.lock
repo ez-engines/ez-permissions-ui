@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ez-permissions-ui (0.5.0)
+    ez-permissions-ui (0.6.0)
       cells-rails (~> 0.1.0)
       cells-slim (~> 0.0.6)
       ez-permissions (~> 0.5.0)
