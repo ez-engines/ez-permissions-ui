@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.summary     = 'UI extension for ez-permissions.'
   s.description = 'UI extension for ez-permissions.'
   s.license     = 'MIT'
+  s.required_ruby_version = '2.5.0'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -22,7 +23,7 @@ Gem::Specification.new do |s|
     s.metadata['allowed_push_host'] = 'https://rubygems.org'
   else
     raise 'RubyGems 2.0 or newer is required to protect against ' \
-      'public gem pushes.'
+          'public gem pushes.'
   end
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']

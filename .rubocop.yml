@@ -2,6 +2,7 @@ require: rubocop
 
 AllCops:
   TargetRubyVersion: 2.5
+  NewCops: enable
   Exclude:
     - bin/*
     - Guardfile
@@ -16,7 +17,7 @@ Metrics/LineLength:
   Max: 120
 
 Metrics/BlockLength:
-  ExcludedMethods: [
+  IgnoredMethods: [
     'describe',
     'xdescribe',
     'context',
