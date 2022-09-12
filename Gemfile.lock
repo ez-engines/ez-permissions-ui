@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    ez-permissions-ui (0.6.0)
+    ez-permissions-ui (0.8.0)
       cells-rails (~> 0.1.0)
       cells-slim (~> 0.0.6)
-      ez-permissions (~> 0.7.0)
+      ez-permissions (~> 0.8.0)
       rails (>= 5.2)
       simple_form (>= 5.0.1)
 
@@ -103,9 +103,9 @@ GEM
     docile (1.4.0)
     erubi (1.10.0)
     ez-core (0.2.0)
-    ez-permissions (0.7.0)
+    ez-permissions (0.8.0)
       ez-core (~> 0.2)
-      rails (>= 5.2, <= 7.0)
+      rails (>= 5.2)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.3)
